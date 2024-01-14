@@ -1,19 +1,16 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Checkbox from './ui/Checkbox';
+import Checkbox from '@/components/ui/Checkbox';
 
 interface TodoItemProps {
-  item: {
-    id: string;
-    title: string;
-    done: boolean;
-  };
+  item: TodoItem;
   onDelete: (id: string) => void;
   onToggleDone: (id: string) => void;
+  onEdit: (todoItem: TodoItem) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ item, onDelete, onToggleDone }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ item, onDelete, onToggleDone, onEdit }) => {
   return (
     <View style={styles.itemContainer}>
       <Checkbox defaultValue={item.done} onChange={(value) => {
@@ -26,7 +23,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ item, onDelete, onToggleDone }) => 
         <TouchableOpacity onPress={() => onDelete(item.id)}>
           <Icon name={'delete'} style={styles.action}/>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => onDelete(item.id)}>
+        <TouchableOpacity onPress={() => onEdit(item)}>
           <Icon name={'square-edit-outline'} style={styles.action}/>
         </TouchableOpacity>
       </View>

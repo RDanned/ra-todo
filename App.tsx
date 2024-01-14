@@ -1,29 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Layout from './src/layout/Layout';
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text>Open up App.js to start working on your app!</Text>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
-
+import { StyleSheet, Text } from 'react-native';
+import Layout from '@/layout/Layout';
 import React from 'react';
-import HomeScreen from './src/screens/HomeScreen';
+import { TodoProvider } from '@/context/TodoContext';
 
 const App: React.FC = () => {
   return (
-    <Layout>
-      <Text>Test</Text>
-    </Layout>
+    <TodoProvider>
+      <Layout />
+    </TodoProvider>
   );
-  //return <HomeScreen />;
 };
 
 export default App;
-
 
 const styles = StyleSheet.create({
   container: {

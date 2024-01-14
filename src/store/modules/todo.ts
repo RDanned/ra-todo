@@ -1,11 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export interface TodoItem {
-  id: string;
-  title: string;
-  done: boolean;
-}
-
 const PREFIX = 'todo.';
 
 export const setItems = async (todos: TodoItem[]): Promise<void> => {
@@ -20,8 +14,9 @@ export const setItems = async (todos: TodoItem[]): Promise<void> => {
 export const getItems = async (): Promise<TodoItem[]> => {
   try {
     const jsonValue = await AsyncStorage.getItem(PREFIX + 'items');
-    return jsonValue != null ? JSON.parse(jsonValue) : [];
+    return jsonValue != null ? Array.from(JSON.parse(jsonValue)) : [];
   } catch (e) {
+    console.log('getItems error');
     console.log(e);
     return [];
   }

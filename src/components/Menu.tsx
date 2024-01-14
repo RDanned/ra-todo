@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity, Animated, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../screens/HomeScreen';
-import HistoryScreen from '../screens/HistoryScreen';
+import HomeScreen from '@/screens/HomeScreen';
+import HistoryScreen from '@/screens/HistoryScreen';
 
 const Tab = createBottomTabNavigator();
 
