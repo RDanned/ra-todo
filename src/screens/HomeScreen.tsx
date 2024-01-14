@@ -17,11 +17,6 @@ const HomeScreen: React.FC = () => {
     submitTodo,
   } = useTodoContext();
 
-
-
-  console.log('HomeScreen')
-  console.log(todoList)
-
   return (
     <View style={styles.screenContainer}>
       <FlatList

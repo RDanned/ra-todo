@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, TextInput, Modal, StyleSheet, Button  } from 'react-native';
+import { View, TextInput, Modal, StyleSheet } from 'react-native';
 
 
 interface AddEditTodoModalProps {

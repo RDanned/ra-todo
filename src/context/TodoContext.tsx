@@ -74,8 +74,6 @@ export const TodoProvider: React.FC<{ children: React.ReactElement }> = ({ child
   }, []);
 
   useEffect(() => {
-    console.log('useEffect tdlst');
-    console.log(todoList)
     TodoStore.setItems(todoList);
   }, [todoList]);
 

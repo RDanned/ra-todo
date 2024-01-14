@@ -8,7 +8,8 @@ interface CheckboxProps {
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({ defaultValue, onChange }) => {
-  const [localValue, setLocalValue] = useState<boolean>(defaultValue);
+  const [localValue, setLocalValue] = useState<boolean>(defaultValue || false);
+
   return (
     <Pressable onPress={() => {
       const newValue = !localValue;
@@ -16,7 +17,7 @@ const Checkbox: React.FC<CheckboxProps> = ({ defaultValue, onChange }) => {
       onChange(newValue)
     }}>
       <View style={styles.container}>
-        { localValue && <View style={styles.iconWrapper}><Icon name={'check'} style={styles.icon}/></View> }
+        { localValue ? <View style={styles.iconWrapper}><Icon name={'check'} style={styles.icon}/></View> : null }
       </View>
     </Pressable>
   )
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     marginRight:'auto',
   },
   icon: {
-    fontSize: 50
+    fontSize: 25
   }
 })
 
